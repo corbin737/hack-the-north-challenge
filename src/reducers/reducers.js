@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 function application(state = {}, action) {
   switch (action.type) {
     case 'UPDATE_APP_STATUS':
-      if (state.id == action.id) {
+      if (state.email == action.email) {
         return Object.assign({}, state, {
           status: action.status
         })

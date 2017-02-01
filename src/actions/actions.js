@@ -1,7 +1,7 @@
-export function updateAppStatus(id, status) {
+export function updateAppStatus(email, status) {
   return {
     type: 'UPDATE_APP_STATUS',
-    id,
+    email,
     status
   }
 }
