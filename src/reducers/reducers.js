@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 function application(state = {}, action) {
   switch (action.type) {
     case 'UPDATE_APP_STATUS':
-      if (state.email == action.email) {
+      if (state.email === action.email) {
         return Object.assign({}, state, {
           status: action.status
         })
@@ -16,14 +16,15 @@ function application(state = {}, action) {
   }
 }
 
-const defaultApplications = require('../assets/data.json');
-
-function applications(state = defaultApplications, action) {
+function applications(state = [], action) {
   switch (action.type) {
     case 'UPDATE_APP_STATUS':
       return state.map(app =>
         application(app, action)
       )
+
+    case 'RECEIVE_APPS':
+      return action.apps;
 
     default:
       return state;
@@ -50,10 +51,24 @@ function searchText(state = '', action) {
   }
 }
 
+function isFetching(state = false, action) {
+  switch (action.type) {
+    case 'REQUESTED_APPS':
+      return true;
+
+    case 'RECEIVE_APPS':
+      return false;
+
+    default:
+      return state;
+  }
+}
+
 const applicationsApp = combineReducers({
   applications,
   visibilityFilter,
-  searchText
+  searchText,
+  isFetching
 });
 
 export default applicationsApp;

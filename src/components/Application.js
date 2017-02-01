@@ -6,7 +6,7 @@ class Application extends Component {
 
     return (
       <tr>
-        <td><img src={app.picture} width='50' height='50' /></td>
+        <td><img src={app.picture} alt='Application' width='50' height='50' /></td>
         <td>{app.name}</td>
         <td>{app.company}</td>
         <td>{app.email}</td>

@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import ApplicationList from './components/ApplicationList';
 import VisibleApplicationList from './containers/VisibleApplicationList'
 import ApplicationSearchBar from './containers/ApplicationSearchBar'
 import ApplicationFilterButtons from './containers/ApplicationFilterButtons'
 import './App.css';
 import logoSvg from './assets/logo.svg';
-import { updateAppStatus } from './actions/actions'
 
 class App extends Component {
   render() {
@@ -14,7 +11,7 @@ class App extends Component {
       <div>
         <header className='header'>
           <div className='logo'>
-            <img src={logoSvg}/>
+            <img src={logoSvg} alt='Logo'/>
           </div>
           <h1>Hack the North Frontend Challenge</h1>
         </header>

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { updateAppStatus } from '../actions/actions'
+import { updateAppStatus, fetchApps } from '../actions/actions'
 import ApplicationList from '../components/ApplicationList'
 
 const getVisibleApplications = (applications, filter, search) => {
@@ -10,15 +10,15 @@ const getVisibleApplications = (applications, filter, search) => {
       break;
 
     case 'SHOW_ACCEPTED':
-      filteredApps = applications.filter(application => application.status == 'accepted');
+      filteredApps = applications.filter(application => application.status === 'accepted');
       break;
 
     case 'SHOW_REJECTED':
-      filteredApps = applications.filter(application => application.status == 'rejected');
+      filteredApps = applications.filter(application => application.status === 'rejected');
       break;
 
     case 'SHOW_IN_REVIEW':
-      filteredApps = applications.filter(application => application.status == 'in_review');
+      filteredApps = applications.filter(application => application.status === 'in_review');
       break;
 
     default:
@@ -40,6 +40,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onUpdateApplicationStatus: (email, status) => {
       dispatch(updateAppStatus(email, status));
+    },
+    onMount: () => {
+      dispatch(fetchApps());
     }
   }
 }

@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const FilterButtons = ({ onFilterChanged }) => {
-  let input;
   return (
     <div>
       <button onClick={e => {
