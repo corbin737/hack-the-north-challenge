@@ -32,7 +32,8 @@ const getVisibleApplications = (applications, filter, search) => {
 
 const mapStateToProps = (state) => {
   return {
-    applications: getVisibleApplications(state.applications, state.visibilityFilter, state.searchText)
+    applications: getVisibleApplications(state.applications, state.visibilityFilter, state.searchText),
+    isFetching: state.isFetching
   }
 }
 

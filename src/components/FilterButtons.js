@@ -1,7 +1,6 @@
 import React from 'react';
 
 const FilterButtons = ({ filter, onFilterChanged }) => {
-  console.log(filter);
   return (
     <div className='btn-group btn-group-xs'>
       <button className={
