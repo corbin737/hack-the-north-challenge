@@ -1,18 +1,27 @@
 import React from 'react';
 
-const FilterButtons = ({ onFilterChanged }) => {
+const FilterButtons = ({ filter, onFilterChanged }) => {
+  console.log(filter);
   return (
-    <div>
-      <button onClick={e => {
+    <div className='btn-group btn-group-xs'>
+      <button className={
+        'btn btn-default ' + (filter === 'SHOW_ALL' ? 'active' : '')
+      } onClick={e => {
         onFilterChanged('SHOW_ALL')
       }}>Show all</button>
-      <button onClick={e => {
+      <button className={
+        'btn btn-default ' + (filter === 'SHOW_ACCEPTED' ? 'active' : '')
+      } onClick={e => {
         onFilterChanged('SHOW_ACCEPTED')
       }}>Show accepted</button>
-      <button onClick={e => {
+      <button className={
+        'btn btn-default ' + (filter === 'SHOW_REJECTED' ? 'active' : '')
+      } onClick={e => {
         onFilterChanged('SHOW_REJECTED')
       }}>Show rejected</button>
-      <button onClick={e => {
+      <button className={
+        'btn btn-default ' + (filter === 'SHOW_IN_REVIEW' ? 'active' : '')
+      } onClick={e => {
         onFilterChanged('SHOW_IN_REVIEW')
       }}>Show in review</button>
     </div>

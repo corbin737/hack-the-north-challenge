@@ -10,7 +10,7 @@ class ApplicationList extends Component {
     let applications = this.props.applications;
     let onUpdateApplicationStatus = this.props.onUpdateApplicationStatus;
     return (
-      <table>
+      <table className='table'>
         <thead>
           <tr>
             <td></td>

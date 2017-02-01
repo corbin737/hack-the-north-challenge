@@ -13,15 +13,17 @@ class Application extends Component {
         <td>{app.phone}</td>
         <td>{app.status}</td>
         <td>
-          <button onClick={e => {
-            this.props.onStatusUpdate(app.email, 'accepted')
-          }}>Accept</button>
-          <button onClick={e => {
-            this.props.onStatusUpdate(app.email, 'rejected')
-          }}>Reject</button>
-          <button onClick={e => {
-            this.props.onStatusUpdate(app.email, 'in_review')
-          }}>Reset</button>
+          <div className='btn-group btn-group-xs'>
+            <button className='btn btn-default' onClick={e => {
+              this.props.onStatusUpdate(app.email, 'accepted')
+            }}>Accept</button>
+            <button className='btn btn-default' onClick={e => {
+              this.props.onStatusUpdate(app.email, 'rejected')
+            }}>Reject</button>
+            <button className='btn btn-default' onClick={e => {
+              this.props.onStatusUpdate(app.email, 'in_review')
+            }}>Reset</button>
+          </div>
         </td>
       </tr>
     )

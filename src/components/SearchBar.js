@@ -10,7 +10,7 @@ const SearchBar = ({ onSearchTextChanged }) => {
       }}>
         <input ref={node => {
           input = node
-        }} />
+        }} className='form-control input-lg' placeholder='Search...'/>
       </form>
     </div>
   )

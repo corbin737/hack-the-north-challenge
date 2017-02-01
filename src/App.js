@@ -9,15 +9,21 @@ class App extends Component {
   render() {
     return (
       <div>
-        <header className='header'>
+        <header className='header container-fluid'>
           <div className='logo'>
             <img src={logoSvg} alt='Logo'/>
           </div>
           <h1>Hack the North Frontend Challenge</h1>
         </header>
-        <section>
-          <ApplicationFilterButtons />
-          <ApplicationSearchBar />
+        <section className='container'>
+          <div className='controls row'>
+            <div className='col-sm-6 col-md-8'>
+              <ApplicationSearchBar />
+            </div>
+            <div className='pull-right'>
+              <ApplicationFilterButtons />
+            </div>
+          </div>
           <VisibleApplicationList />
         </section>
       </div>

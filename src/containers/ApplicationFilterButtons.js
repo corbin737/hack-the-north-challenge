@@ -2,6 +2,11 @@ import { connect } from 'react-redux';
 import { setVisibilityFilter } from '../actions/actions'
 import FilterButtons from '../components/FilterButtons'
 
+const mapStateToProps = (state) => {
+  return {
+    filter: state.visibilityFilter
+  }
+}
 const mapDispatchToProps = (dispatch) => {
   return {
     onFilterChanged: (filter) => {
@@ -11,7 +16,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const ApplicationFilterButtons = connect(
-  undefined,
+  mapStateToProps,
   mapDispatchToProps
 )(FilterButtons);
 
