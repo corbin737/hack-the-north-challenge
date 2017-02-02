@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { setVisibilityFilter } from '../actions/actions'
+import { changePage, setVisibilityFilter } from '../actions/actions'
 import FilterButtons from '../components/FilterButtons'
 
 const mapStateToProps = (state) => {
@@ -10,6 +10,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onFilterChanged: (filter) => {
+      dispatch(changePage(1));
       dispatch(setVisibilityFilter(filter))
     }
   }

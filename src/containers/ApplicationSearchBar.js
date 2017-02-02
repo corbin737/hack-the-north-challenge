@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
-import { setSearchText } from '../actions/actions'
+import { changePage, setSearchText } from '../actions/actions'
 import SearchBar from '../components/SearchBar'
 
 const mapDispatchToProps = (dispatch) => {
   return {
     onSearchTextChanged: (text) => {
+      dispatch(changePage(1))
       dispatch(setSearchText(text))
     }
   }

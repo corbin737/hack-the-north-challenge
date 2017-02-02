@@ -1,39 +1,58 @@
 import { connect } from 'react-redux';
-import { updateAppStatus, fetchApps } from '../actions/actions'
+import { updateAppStatus } from '../actions/actions'
 import ApplicationList from '../components/ApplicationList'
+import {
+  FILTER_SHOW_ALL, FILTER_SHOW_ACCEPTED,
+  FILTER_SHOW_REJECTED, FILTER_SHOW_IN_REVIEW
+} from '../actions/actions'
 
-const getVisibleApplications = (applications, filter, search) => {
-  let filteredApps;
+const appsPerPage = 20;
+
+const applyFilter = (applications, filter) => {
   switch (filter) {
-    case 'SHOW_ALL':
-      filteredApps = applications;
-      break;
+    case FILTER_SHOW_ALL:
+      return applications;
 
-    case 'SHOW_ACCEPTED':
-      filteredApps = applications.filter(application => application.status === 'accepted');
-      break;
+    case FILTER_SHOW_ACCEPTED:
+      return applications.filter(application => application.status === 'accepted');
 
-    case 'SHOW_REJECTED':
-      filteredApps = applications.filter(application => application.status === 'rejected');
-      break;
+    case FILTER_SHOW_REJECTED:
+      return applications.filter(application => application.status === 'rejected');
 
-    case 'SHOW_IN_REVIEW':
-      filteredApps = applications.filter(application => application.status === 'in_review');
-      break;
+    case FILTER_SHOW_IN_REVIEW:
+      return applications.filter(application => application.status === 'in_review');
 
     default:
-      filteredApps = applications;
-      break;
+      return applications;
   }
-  return filteredApps.filter(application => {
+}
+
+const applySearch = (applications, search) => {
+  return applications.filter(application => {
     return application.name.toLowerCase().includes(search)
   })
 }
 
+const applyPagination = (applications, currentPage) => {
+  return applications.slice(
+    appsPerPage * (currentPage - 1),
+    appsPerPage * (currentPage - 1) + appsPerPage
+  )
+}
+
+const countPages = (applications) => {
+  return Math.ceil(applications.length / appsPerPage)
+}
+
 const mapStateToProps = (state) => {
+  let visibleApps, paginatedApps;
+  visibleApps = applyFilter(state.applications, state.visibilityFilter);
+  visibleApps = applySearch(visibleApps, state.searchText);
+  paginatedApps = applyPagination(visibleApps, state.currentPage);
   return {
-    applications: getVisibleApplications(state.applications, state.visibilityFilter, state.searchText),
-    isFetching: state.isFetching
+    applications: paginatedApps,
+    isFetching: state.isFetching,
+    pageCount: countPages(visibleApps)
   }
 }
 
@@ -42,9 +61,6 @@ const mapDispatchToProps = (dispatch) => {
     onUpdateApplicationStatus: (email, status) => {
       dispatch(updateAppStatus(email, status));
     },
-    onMount: () => {
-      dispatch(fetchApps());
-    }
   }
 }
 

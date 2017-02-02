@@ -1,7 +1,9 @@
 import React from 'react';
 
 const SearchBar = ({ onSearchTextChanged }) => {
-  let input;
+
+  let input
+  
   return (
     <div>
       <form onChange={e => {

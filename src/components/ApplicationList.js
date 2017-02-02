@@ -1,21 +1,22 @@
-import React, { Component } from 'react';
-import Application from './Application'
+import React from 'react';
+import Application from './Application';
+import ApplicationPager from '../containers/ApplicationPager'
 
-class ApplicationList extends Component {
-  componentWillMount() {
-    this.props.onMount();
-  }
+const ApplicationList = ({
+  applications, onUpdateApplicationStatus,
+  isFetching, pageCount
+}) => {
 
-  render() {
-    let applications = this.props.applications;
-    let onUpdateApplicationStatus = this.props.onUpdateApplicationStatus;
-    let isFetching = this.props.isFetching;
-    let isEmpty = (this.props.applications.length === 0);
-    return (
-      <div>
-        <span className={isFetching ? '' : 'hidden'}>Loading...</span>
-        <span className={isEmpty && !isFetching ? '' : 'hidden'}>Nothing to show.</span>
-        <table className={isFetching || isEmpty ? 'hidden' : 'table'}>
+  let isEmpty = (applications.length === 0)
+
+  return (
+    <div>
+      <span className={isFetching ? '' : 'hidden'}>Loading...</span>
+      <div className={isEmpty && !isFetching ? 'alert alert-warning' : 'hidden'}>
+        No items match your criteria.
+      </div>
+      <div className={isFetching || isEmpty ? 'hidden' : ''}>
+        <table className='table'>
           <thead>
             <tr>
               <td></td>
@@ -32,10 +33,11 @@ class ApplicationList extends Component {
             )}
           </tbody>
         </table>
-      </div>
-    )
-  }
-}
 
+        <ApplicationPager pageCount={pageCount}/>
+      </div>
+    </div>
+  )
+}
 
 export default ApplicationList;

@@ -6,10 +6,6 @@
   margin-bottom: 16px;
 }
 
-.controls {
-  margin-bottom: 16px;
-}
-
 .header h1 {
   font-size: 28px;
   font-family: -apple-system, BlinkMacSystemFont, 'Roboto', Helvetica, Arial, sans-serif;
@@ -18,4 +14,12 @@
 .logo {
   width: 56px;
   margin-right: 16px;
+}
+
+.container {
+  margin-bottom: 50px;
+}
+
+.controls {
+  margin-bottom: 16px;
 }

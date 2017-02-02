@@ -1,8 +1,13 @@
 import { combineReducers } from 'redux';
+import {
+  REQUEST_APPS, RECEIVE_APPS, UPDATE_APP_STATUS,
+  SET_VISIBILITY_FILTER, SET_SEARCH_TEXT, SET_PAGE_NUMBER,
+  FILTER_SHOW_ALL
+} from '../actions/actions'
 
 function application(state = {}, action) {
   switch (action.type) {
-    case 'UPDATE_APP_STATUS':
+    case UPDATE_APP_STATUS:
       if (state.email === action.email) {
         return Object.assign({}, state, {
           status: action.status
@@ -18,12 +23,12 @@ function application(state = {}, action) {
 
 function applications(state = [], action) {
   switch (action.type) {
-    case 'UPDATE_APP_STATUS':
+    case UPDATE_APP_STATUS:
       return state.map(app =>
         application(app, action)
       )
 
-    case 'RECEIVE_APPS':
+    case RECEIVE_APPS:
       return action.apps;
 
     default:
@@ -31,9 +36,9 @@ function applications(state = [], action) {
   }
 }
 
-function visibilityFilter(state = 'SHOW_ALL', action) {
+function visibilityFilter(state = FILTER_SHOW_ALL, action) {
   switch (action.type) {
-    case 'SET_VISIBILITY_FILTER':
+    case SET_VISIBILITY_FILTER:
       return action.filter;
 
     default:
@@ -43,7 +48,7 @@ function visibilityFilter(state = 'SHOW_ALL', action) {
 
 function searchText(state = '', action) {
   switch (action.type) {
-    case 'SET_SEARCH_TEXT':
+    case SET_SEARCH_TEXT:
       return action.text;
 
     default:
@@ -53,11 +58,21 @@ function searchText(state = '', action) {
 
 function isFetching(state = false, action) {
   switch (action.type) {
-    case 'REQUESTED_APPS':
+    case REQUEST_APPS:
       return true;
 
-    case 'RECEIVE_APPS':
+    case RECEIVE_APPS:
       return false;
+
+    default:
+      return state;
+  }
+}
+
+function currentPage(state = 1, action) {
+  switch (action.type) {
+    case SET_PAGE_NUMBER:
+      return action.page;
 
     default:
       return state;
@@ -68,7 +83,8 @@ const applicationsApp = combineReducers({
   applications,
   visibilityFilter,
   searchText,
-  isFetching
+  isFetching,
+  currentPage
 });
 
 export default applicationsApp;
