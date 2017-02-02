@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import './Application.css'
 import StarRating from './StarRating'
 
@@ -51,4 +51,4 @@ const Application = ({ application, onStatusUpdate }) => {
   )
 }
 
-export default Application;
+export default Application

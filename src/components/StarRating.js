@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const StarRating = ({ rating }) => {
 
@@ -6,7 +6,7 @@ const StarRating = ({ rating }) => {
   let halfStar = (rating % 2 === 1)
   let emptyStars = 5 - fullStars - halfStar
 
-  let stars = [], i, j = 0;
+  let stars = [], i, j = 0
   for (i = 0; i < fullStars; i++) {
     stars.push(<i className='fa fa-star' key={j++}></i>)
   }
@@ -24,4 +24,4 @@ const StarRating = ({ rating }) => {
   )
 }
 
-export default StarRating;
+export default StarRating

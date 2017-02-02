@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import './Pager.css'
 
 const Pager = ({ currentPage, changePage, pageCount }) => {
@@ -17,7 +17,7 @@ const Pager = ({ currentPage, changePage, pageCount }) => {
               disabled={currentPage === pageCount ? 'disabled' : ''}
               style={{'borderRadius':1000}}
               onClick={e => {
-                changePage(currentPage + 1);
+                changePage(currentPage + 1)
                 window.scrollTo(0, 0)
               }}
       >Next <i className='fa fa-caret-right'></i></button>
@@ -25,4 +25,4 @@ const Pager = ({ currentPage, changePage, pageCount }) => {
   )
 }
 
-export default Pager;
+export default Pager

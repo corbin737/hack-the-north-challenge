@@ -57,7 +57,7 @@ export function changePage(page) {
 
 export function fetchApps() {
   return function(dispatch) {
-    dispatch(requestApps());
+    dispatch(requestApps())
     return fetch('https://hackthenorth.com/fe-users.json')
            .then(response => response.json())
            .then(json => dispatch(receiveApps(json)))

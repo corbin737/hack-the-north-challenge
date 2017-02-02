@@ -1,5 +1,5 @@
-import React from 'react';
-import Application from './Application';
+import React from 'react'
+import Application from './Application'
 import ApplicationPager from '../containers/ApplicationPager'
 
 const ApplicationList = ({
@@ -29,7 +29,9 @@ const ApplicationList = ({
           </thead>
           <tbody>
             {applications.map((application, i) =>
-              <Application key={i} application={application} onStatusUpdate={onUpdateApplicationStatus}/>
+              <Application key={i}
+                           application={application}
+                           onStatusUpdate={onUpdateApplicationStatus}/>
             )}
           </tbody>
         </table>
@@ -40,4 +42,4 @@ const ApplicationList = ({
   )
 }
 
-export default ApplicationList;
+export default ApplicationList

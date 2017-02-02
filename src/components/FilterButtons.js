@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import {
   FILTER_SHOW_ALL, FILTER_SHOW_ACCEPTED,
   FILTER_SHOW_REJECTED, FILTER_SHOW_IN_REVIEW
@@ -32,4 +32,4 @@ const FilterButtons = ({ filter, onFilterChanged }) => {
 }
 
 
-export default FilterButtons;
+export default FilterButtons

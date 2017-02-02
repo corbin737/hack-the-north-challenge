@@ -1,4 +1,4 @@
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 import { changePage } from '../actions/actions'
 import Pager from '../components/Pager'
 
@@ -12,7 +12,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     changePage: (page) => {
-      dispatch(changePage(page));
+      dispatch(changePage(page))
     }
   }
 }
@@ -20,6 +20,6 @@ const mapDispatchToProps = (dispatch) => {
 const ApplicationPager = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Pager);
+)(Pager)
 
 export default ApplicationPager

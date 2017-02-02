@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const SearchBar = ({ onSearchTextChanged }) => {
 
@@ -7,7 +7,7 @@ const SearchBar = ({ onSearchTextChanged }) => {
   return (
     <div>
       <form onChange={e => {
-        e.preventDefault();
+        e.preventDefault()
         onSearchTextChanged(input.value)
       }}>
         <input ref={node => {
@@ -19,4 +19,4 @@ const SearchBar = ({ onSearchTextChanged }) => {
 }
 
 
-export default SearchBar;
+export default SearchBar

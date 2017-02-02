@@ -1,4 +1,4 @@
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 import { changePage, setSearchText } from '../actions/actions'
 import SearchBar from '../components/SearchBar'
 
@@ -14,6 +14,6 @@ const mapDispatchToProps = (dispatch) => {
 const ApplicationSearchBar = connect(
   undefined,
   mapDispatchToProps
-)(SearchBar);
+)(SearchBar)
 
 export default ApplicationSearchBar

@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 import VisibleApplicationList from './containers/VisibleApplicationList'
 import ApplicationSearchBar from './containers/ApplicationSearchBar'
 import ApplicationFilterButtons from './containers/ApplicationFilterButtons'
-import './App.css';
-import logoSvg from './assets/logo.svg';
+import './App.css'
+import logoSvg from './assets/logo.svg'
 
 const App = () => {
   return (
@@ -29,4 +29,4 @@ const App = () => {
   )
 }
 
-export default App;
+export default App

@@ -1,4 +1,4 @@
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 import { updateAppStatus } from '../actions/actions'
 import ApplicationList from '../components/ApplicationList'
 import {
@@ -6,24 +6,24 @@ import {
   FILTER_SHOW_REJECTED, FILTER_SHOW_IN_REVIEW
 } from '../actions/actions'
 
-const appsPerPage = 20;
+const appsPerPage = 20
 
 const applyFilter = (applications, filter) => {
   switch (filter) {
     case FILTER_SHOW_ALL:
-      return applications;
+      return applications
 
     case FILTER_SHOW_ACCEPTED:
-      return applications.filter(application => application.status === 'accepted');
+      return applications.filter(application => application.status === 'accepted')
 
     case FILTER_SHOW_REJECTED:
-      return applications.filter(application => application.status === 'rejected');
+      return applications.filter(application => application.status === 'rejected')
 
     case FILTER_SHOW_IN_REVIEW:
-      return applications.filter(application => application.status === 'in_review');
+      return applications.filter(application => application.status === 'in_review')
 
     default:
-      return applications;
+      return applications
   }
 }
 
@@ -45,10 +45,10 @@ const countPages = (applications) => {
 }
 
 const mapStateToProps = (state) => {
-  let visibleApps, paginatedApps;
-  visibleApps = applyFilter(state.applications, state.visibilityFilter);
-  visibleApps = applySearch(visibleApps, state.searchText);
-  paginatedApps = applyPagination(visibleApps, state.currentPage);
+  let visibleApps, paginatedApps
+  visibleApps = applyFilter(state.applications, state.visibilityFilter)
+  visibleApps = applySearch(visibleApps, state.searchText)
+  paginatedApps = applyPagination(visibleApps, state.currentPage)
   return {
     applications: paginatedApps,
     isFetching: state.isFetching,
@@ -59,7 +59,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onUpdateApplicationStatus: (email, status) => {
-      dispatch(updateAppStatus(email, status));
+      dispatch(updateAppStatus(email, status))
     },
   }
 }
@@ -67,6 +67,6 @@ const mapDispatchToProps = (dispatch) => {
 const VisibleApplicationList = connect(
   mapStateToProps,
   mapDispatchToProps
-)(ApplicationList);
+)(ApplicationList)
 
 export default VisibleApplicationList
