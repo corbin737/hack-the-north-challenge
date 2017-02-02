@@ -20,7 +20,7 @@ const App = () => {
             <ApplicationSearchBar />
           </div>
           <div className='pull-right'>
-            <ApplicationFilterButtons />
+            <ApplicationFilterButtons className='filter-buttons'/>
           </div>
         </div>
         <VisibleApplicationList />

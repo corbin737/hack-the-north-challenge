@@ -22,8 +22,8 @@ const ApplicationList = ({
               <td></td>
               <td><strong>Name</strong></td>
               <td><strong>Company</strong></td>
-              <td><strong>Email</strong></td>
-              <td><strong>Phone</strong></td>
+              <td><strong>Contact</strong></td>
+              <td><strong>Skills</strong></td>
               <td><strong>Status</strong></td>
             </tr>
           </thead>

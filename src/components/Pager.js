@@ -11,8 +11,8 @@ const Pager = ({ currentPage, changePage, pageCount }) => {
                 changePage(currentPage - 1)
                 window.scrollTo(0, 0)
               }}
-      >Previous</button>
-      <span className='pager-text'>{currentPage} / {pageCount}</span>
+      ><i className='fa fa-caret-left'></i> Previous</button>
+      <span className='pager-page-display'>{currentPage} / {pageCount}</span>
       <button className='btn btn-default'
               disabled={currentPage === pageCount ? 'disabled' : ''}
               style={{'borderRadius':1000}}
@@ -20,7 +20,7 @@ const Pager = ({ currentPage, changePage, pageCount }) => {
                 changePage(currentPage + 1);
                 window.scrollTo(0, 0)
               }}
-      >Next</button>
+      >Next <i className='fa fa-caret-right'></i></button>
     </nav>
   )
 }
